@@ -1,0 +1,45 @@
+/* На мобильных таблица превращается в карточки: заголовок берётся из data-label */
+@media (max-width: 767.98px) {
+  .table thead {
+    display: none;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+
+  .table tr {
+    padding: 0.5rem 0.25rem;
+    border-bottom: 1px solid var(--bs-border-color);
+  }
+
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.25rem 0.5rem;
+    border: 0;
+    text-align: right;
+  }
+
+  .table td:first-child {
+    display: block;
+    text-align: left;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    flex-shrink: 0;
+    font-weight: 600;
+    color: var(--bs-secondary-color);
+  }
+
+  .table td:first-child::before {
+    display: none;
+  }
+}
